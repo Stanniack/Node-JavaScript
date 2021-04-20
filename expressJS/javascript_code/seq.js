@@ -25,4 +25,19 @@ const Post = sequelize.define('post', {
     }
 })
 
-Post.sync({force: true})
+const User = sequelize.define('users', {
+    name: {
+        type: Sequelize.STRING
+    },
+    lastName: {
+        type: Sequelize.STRING
+    },
+    age: {
+        type: Sequelize.INTEGER
+    },
+    email: {
+        type: Sequelize.STRING
+    }
+})
+
+User.sync({force: true})
