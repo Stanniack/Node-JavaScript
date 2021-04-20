@@ -25,6 +25,11 @@ const Post = sequelize.define('post', {
     }
 })
 
+Post.create({
+    titulo: 'Criando meu primeiro post com ORM Sequelize em NodeJs',
+    content: 'Aprendnedo NodeJS e Sequelize! Me parece ser mais fácil que Hibernate o.o'
+})
+
 const User = sequelize.define('users', {
     name: {
         type: Sequelize.STRING
@@ -40,4 +45,10 @@ const User = sequelize.define('users', {
     }
 })
 
-User.sync({force: true})
+User.create({
+    name: 'Mateus',
+    age: 24,
+    lastName: 'Vitor',
+    email: 'mateusvitor@gmail.com'
+})
+
