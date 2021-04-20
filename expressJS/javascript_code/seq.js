@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize')
+const {Sequelize} = require('sequelize')
 
 /* Conexão do bd: nomeBanco, nomeUser, senha, json de configuração */
 const sequelize = new Sequelize('test', 'root', '', {
@@ -51,4 +51,3 @@ User.create({
     lastName: 'Vitor',
     email: 'mateusvitor@gmail.com'
 })
-
