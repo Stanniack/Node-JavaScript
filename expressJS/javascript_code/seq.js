@@ -8,5 +8,17 @@ const sequelize = new Sequelize('test', 'root', '', {
 sequelize.authenticate().then(function () {
     console.log('Conectado com sucesso!')
 }).catch(function (err) {
-    console.log('Erro ao conectar: ' + err)
+        console.log('Erro ao conectar: ' + err)
 })
+
+/* Criando Tabela/Models */
+const Post = sequelize.define('post', {
+    titulo: {
+        type: Sequelize.STRING
+    },
+    content: {
+        type: Sequelize.TEXT
+    }
+})
+
+Post.sync({force: true})
