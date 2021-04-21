@@ -23,6 +23,10 @@ app.get('/cadastro', function(requestion, answer){
     answer.render('form')
 }) 
 
+app.post('/app', function(requestion, answer) {
+    answer.send('Testando!!')
+})
+
 /* Roda o express */
 app.listen(port, function () {
     console.log('Servidor rodando na porta: ' + port)
