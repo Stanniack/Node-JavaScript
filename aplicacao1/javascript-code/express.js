@@ -1,11 +1,12 @@
 const express = require('express')
 const {Sequelize} = require('sequelize')
 const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
 
 const app = express()
 const port = 8081
 
-/*Configurações básicas da aplicação */
+/* Configurações básicas da aplicação */
 
     /* configurando template engine: templateEngine, página html default */
     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
@@ -17,14 +18,18 @@ const port = 8081
         dialect: 'mysql'
     })
 
+    /* Configurando Body-parser (conversor de requisições) */
+    app.use(express.urlencoded({extended: false}))
+    app.use(express.json())
 
-/* Rotas express*/
+
+/* Rotas express */
 app.get('/cadastro', function(requestion, answer){
     answer.render('form')
 }) 
 
 app.post('/app', function(requestion, answer) {
-    answer.send('Testando!!')
+    answer.send('Título: ' + requestion.body.titulo)
 })
 
 /* Roda o express */
