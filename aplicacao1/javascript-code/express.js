@@ -18,6 +18,11 @@ const port = 8081
     })
 
 
+/* Rotas express*/
+app.get('/cadastro', function(requestion, answer){
+    answer.render('form')
+}) 
+
 /* Roda o express */
 app.listen(port, function () {
     console.log('Servidor rodando na porta: ' + port)
