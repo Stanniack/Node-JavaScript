@@ -2,6 +2,9 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 
+/**/
+const Post = require('../models/Post.js')
+
 const app = express()
 const port = 8081
 
@@ -20,12 +23,20 @@ const port = 8081
 // -----------------------------------
 
     /* Rotas express */
+
     app.get('/cadastro', function(requestion, answer){
-        answer.render('form')
+        answer.render('form.handlebars')
     }) 
 
     app.post('/app', function(requestion, answer) {
-        answer.send('Título: ' + requestion.body.titulo)
+        Post.create({
+            title: requestion.body.titulo,
+            content: requestion.body.conteudo
+        }).then(function () {
+            answer.redirect('/principal')
+        }).catch(function(err) {
+            answer.send('Falha ao criar o Post.' + err)
+        })
     })
 
 
