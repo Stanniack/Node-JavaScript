@@ -3,7 +3,8 @@ const {Sequelize} = require('sequelize')
 /* Configurando banco de dados */
 const sequelize = new Sequelize('test', 'root', '', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    query: {raw:true}
 })
 
 /* Verifica banco de dados */
