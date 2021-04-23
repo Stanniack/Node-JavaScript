@@ -25,6 +25,7 @@ const port = 8081
     /* Rotas express */
 
     app.get('/principal', function(requestion, answer) {
+        /* callback: param com nome facultativo, render: página HTMl, envia um array com os dados do bd para a página HTML*/
         Post.findAll().then(function(getPosts) {
             answer.render('home.handlebars', {
                 posts: getPosts
@@ -37,6 +38,7 @@ const port = 8081
     }) 
 
     app.post('/app', function(requestion, answer) {
+        /* Criando post com dados da página html por requestion */
         Post.create({
             title: requestion.body.titulo,
             content: requestion.body.conteudo
