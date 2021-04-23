@@ -49,6 +49,16 @@ const port = 8081
         })
     })
 
+    app.get('/deletar/:id', function(requestion, answer) {
+        Post.destroy({where: requestion.params.id}).then(function() {
+            answer.redirect('/principal')
+        }).catch(function(err) {
+            console.log('Erro ao deletar: ' + err)
+            answer.redirect('/principal')
+        })
+    })
+
+
 
 // -----------------------------------
 
