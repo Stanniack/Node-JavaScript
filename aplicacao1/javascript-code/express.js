@@ -24,6 +24,14 @@ const port = 8081
 
     /* Rotas express */
 
+    app.get('/principal', function(requestion, answer) {
+        Post.findAll().then(function(getPosts) {
+            answer.render('home.handlebars', {
+                posts: getPosts
+            })
+        })
+    })
+
     app.get('/cadastro', function(requestion, answer){
         answer.render('form.handlebars')
     }) 
