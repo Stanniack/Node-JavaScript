@@ -37,7 +37,7 @@ const port = 8081
         answer.render('cadastrar.handlebars')
     })
 
-    app.post('/app', function(requestion, answer) {
+    app.post('/create', function(requestion, answer) {
         /* Criando post com dados da página html por requestion */
         Post.create({
             title: requestion.body.titulo,
