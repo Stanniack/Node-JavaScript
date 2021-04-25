@@ -34,8 +34,8 @@ const port = 8081
     })
 
     app.get('/cadastro', function(requestion, answer){
-        answer.render('form.handlebars')
-    }) 
+        answer.render('cadastrar.handlebars')
+    })
 
     app.post('/app', function(requestion, answer) {
         /* Criando post com dados da página html por requestion */
@@ -50,14 +50,15 @@ const port = 8081
     })
 
     app.get('/deletar/:id', function(requestion, answer) {
-        Post.destroy({where: requestion.params.id}).then(function() {
+        Post.destroy({
+            where: {'id': requestion.params.id}
+        }).then(function() {
             answer.redirect('/principal')
         }).catch(function(err) {
             console.log('Erro ao deletar: ' + err)
             answer.redirect('/principal')
         })
     })
-
 
 
 // -----------------------------------
